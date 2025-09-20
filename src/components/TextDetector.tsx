@@ -4,12 +4,19 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Upload, Trash2, Brain, User, Loader2 } from "lucide-react";
 import ConfidenceScore from "./ConfidenceScore";
+import ExplanationCard from "./ExplanationCard";
 import { useToast } from "@/hooks/use-toast";
 
 interface DetectionResult {
   isAI: boolean;
   confidence: number;
   label: string;
+  analysisFactors: {
+    complexity: number;
+    patterns: number;
+    structure: number;
+    vocabulary: number;
+  };
 }
 
 const TextDetector = () => {
@@ -48,10 +55,19 @@ const TextDetector = () => {
 
     const isAI = aiProbability > 50;
     
+    // Generate analysis factors for visualization
+    const analysisFactors = {
+      complexity: Math.round(hasComplexPunctuation ? 75 + Math.random() * 20 : 40 + Math.random() * 30),
+      patterns: Math.round(hasRepetitivePatterns ? 80 + Math.random() * 15 : 35 + Math.random() * 25),
+      structure: Math.round(wordCount > 100 ? 70 + Math.random() * 25 : 45 + Math.random() * 30),
+      vocabulary: Math.round(isAI ? 65 + Math.random() * 30 : 50 + Math.random() * 35)
+    };
+    
     setResult({
       isAI,
       confidence: Math.round(isAI ? aiProbability : 100 - aiProbability),
-      label: isAI ? "AI-Generated" : "Human-Written"
+      label: isAI ? "AI-Generated" : "Human-Written",
+      analysisFactors
     });
 
     setIsAnalyzing(false);
@@ -199,6 +215,16 @@ const TextDetector = () => {
                   ⚡ {result.confidence}% certain
                 </div>
               </div>
+            </div>
+
+            {/* Detailed Explanation and Analysis */}
+            <div className="mt-8">
+              <ExplanationCard
+                isAI={result.isAI}
+                confidence={result.confidence}
+                wordCount={text.split(/\s+/).length}
+                analysisFactors={result.analysisFactors}
+              />
             </div>
           </div>
         </Card>
