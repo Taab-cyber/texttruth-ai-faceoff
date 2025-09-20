@@ -102,17 +102,17 @@ const TextDetector = () => {
                 <Button
                   onClick={analyzeText}
                   disabled={isAnalyzing || !text.trim()}
-                  className="bg-gradient-primary hover:opacity-90 text-primary-foreground font-medium px-8 py-2 shadow-glow transition-all duration-300"
+                  className="bg-gradient-primary hover:bg-gradient-neon text-primary-foreground font-bold px-10 py-3 shadow-neon transition-all duration-500 transform hover:scale-105 hover:shadow-neon animate-glow-pulse"
                 >
                   {isAnalyzing ? (
                     <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Analyzing...
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      🔍 Analyzing...
                     </>
                   ) : (
                     <>
-                      <Brain className="w-4 h-4 mr-2" />
-                      Detect Now
+                      <Brain className="w-5 h-5 mr-2" />
+                      🚀 Detect Now
                     </>
                   )}
                 </Button>
@@ -163,14 +163,18 @@ const TextDetector = () => {
       {result && (
         <Card className="p-8 bg-surface border-border shadow-card animate-scale-in">
           <div className="text-center space-y-8">
-            <div className="flex items-center justify-center space-x-3">
+            <div className="flex items-center justify-center space-x-4">
               {result.isAI ? (
-                <Brain className="w-8 h-8 text-primary" />
+                <div className="p-3 rounded-full bg-gradient-primary shadow-neon">
+                  <Brain className="w-8 h-8 text-primary-foreground animate-glow-pulse" />
+                </div>
               ) : (
-                <User className="w-8 h-8 text-success" />
+                <div className="p-3 rounded-full bg-gradient-to-br from-success to-green-400 shadow-glow">
+                  <User className="w-8 h-8 text-white" />
+                </div>
               )}
-              <h3 className="text-2xl font-semibold text-foreground">
-                Detection Results
+              <h3 className="text-3xl font-bold text-foreground animate-neon-pulse">
+                🎯 Detection Results
               </h3>
             </div>
 
@@ -181,18 +185,18 @@ const TextDetector = () => {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <div className="text-center p-4 rounded-lg bg-background border border-border">
-                <div className="text-sm text-muted-foreground mb-1">Classification</div>
-                <div className={`text-lg font-semibold ${
-                  result.isAI ? 'text-primary' : 'text-success'
+              <div className="text-center p-6 rounded-xl bg-gradient-surface border border-border shadow-cyber hover:shadow-neon transition-all duration-300">
+                <div className="text-sm text-muted-foreground mb-2 font-medium">🏷️ Classification</div>
+                <div className={`text-xl font-bold ${
+                  result.isAI ? 'text-neon-pink animate-neon-pulse' : 'text-success'
                 }`}>
-                  {result.label}
+                  {result.isAI ? '🤖 ' : '👤 '}{result.label}
                 </div>
               </div>
-              <div className="text-center p-4 rounded-lg bg-background border border-border">
-                <div className="text-sm text-muted-foreground mb-1">Confidence</div>
-                <div className="text-lg font-semibold text-foreground">
-                  {result.confidence}% certain
+              <div className="text-center p-6 rounded-xl bg-gradient-surface border border-border shadow-cyber hover:shadow-neon transition-all duration-300">
+                <div className="text-sm text-muted-foreground mb-2 font-medium">📊 Confidence</div>
+                <div className="text-xl font-bold text-foreground">
+                  ⚡ {result.confidence}% certain
                 </div>
               </div>
             </div>
@@ -202,7 +206,10 @@ const TextDetector = () => {
 
       {/* Info Section */}
       <div className="text-center text-sm text-muted-foreground">
-        <p>Powered by advanced AI detection algorithms</p>
+        <p className="font-medium">⚡ Powered by advanced AI detection algorithms 🚀</p>
+        <div className="mt-2 inline-block px-4 py-1 rounded-full bg-gradient-primary shadow-glow">
+          <span className="text-primary-foreground text-xs font-bold">NEXT-GEN TECH</span>
+        </div>
       </div>
     </div>
   );

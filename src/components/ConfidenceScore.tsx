@@ -42,15 +42,23 @@ const ConfidenceScore = ({ score, label, isVisible }: ConfidenceScoreProps) => {
             cx="50"
             cy="50"
             r="45"
-            stroke="hsl(var(--primary))"
+            stroke="url(#neonGradient)"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
             strokeDasharray={strokeDasharray}
             strokeDashoffset={strokeDashoffset}
             className="transition-all duration-1000 ease-out"
-            style={{ filter: 'drop-shadow(0 0 8px hsl(var(--primary) / 0.5))' }}
+            style={{ filter: 'drop-shadow(0 0 12px hsl(320 100% 70% / 0.8))' }}
           />
+          {/* Gradient definition */}
+          <defs>
+            <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="hsl(320 100% 70%)" />
+              <stop offset="50%" stopColor="hsl(290 100% 70%)" />
+              <stop offset="100%" stopColor="hsl(260 100% 70%)" />
+            </linearGradient>
+          </defs>
         </svg>
         {/* Score text */}
         <div className="absolute inset-0 flex items-center justify-center">

@@ -8,49 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 222 84% 5%;
-    --foreground: 210 40% 98%;
+    --background: 300 20% 6%;
+    --foreground: 320 15% 95%;
 
-    --card: 222 50% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 310 25% 9%;
+    --card-foreground: 320 15% 95%;
 
-    --popover: 222 50% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 310 25% 9%;
+    --popover-foreground: 320 15% 95%;
 
-    --primary: 195 100% 43%;
-    --primary-foreground: 222 84% 5%;
+    --primary: 320 100% 60%;
+    --primary-foreground: 300 20% 6%;
 
-    --secondary: 222 40% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 315 30% 15%;
+    --secondary-foreground: 320 15% 95%;
 
-    --muted: 222 40% 12%;
-    --muted-foreground: 215.4 16.3% 65%;
+    --muted: 315 25% 12%;
+    --muted-foreground: 315 10% 65%;
 
-    --accent: 195 100% 43%;
-    --accent-foreground: 222 84% 5%;
+    --accent: 290 100% 65%;
+    --accent-foreground: 300 20% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 320 15% 95%;
 
-    --border: 222 40% 15%;
-    --input: 222 40% 12%;
-    --ring: 195 100% 43%;
+    --border: 315 25% 18%;
+    --input: 315 25% 12%;
+    --ring: 320 100% 60%;
 
-    /* Custom design tokens */
-    --surface: 222 45% 10%;
-    --surface-hover: 222 45% 12%;
-    --text-muted: 215.4 16.3% 65%;
-    --teal-glow: 195 100% 43%;
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
+    /* Custom pink tech design tokens */
+    --surface: 310 30% 10%;
+    --surface-hover: 310 30% 13%;
+    --text-muted: 315 10% 65%;
+    --pink-glow: 320 100% 60%;
+    --neon-pink: 320 100% 70%;
+    --cyber-purple: 290 100% 65%;
+    --success: 150 80% 45%;
+    --warning: 45 95% 55%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(195 100% 35%));
+    /* Pink tech gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 100% 60%), hsl(290 100% 65%));
     --gradient-surface: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--surface-hover)));
+    --gradient-neon: linear-gradient(90deg, hsl(320 100% 70%), hsl(290 100% 70%), hsl(260 100% 70%));
+    --gradient-cyber: linear-gradient(180deg, hsl(310 30% 10%), hsl(320 40% 8%));
     
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 10px 30px hsl(222 84% 4% / 0.5);
+    /* Pink tech shadows */
+    --shadow-glow: 0 0 40px hsl(320 100% 60% / 0.4);
+    --shadow-neon: 0 0 60px hsl(320 100% 70% / 0.6);
+    --shadow-card: 0 15px 35px hsl(300 20% 3% / 0.7);
+    --shadow-cyber: inset 0 1px 0 hsl(320 100% 80% / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

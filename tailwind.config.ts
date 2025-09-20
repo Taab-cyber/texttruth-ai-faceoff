@@ -57,13 +57,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom design tokens
+        // Custom pink tech design tokens
         surface: {
           DEFAULT: "hsl(var(--surface))",
           hover: "hsl(var(--surface-hover))",
         },
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
+        neon: {
+          pink: "hsl(var(--neon-pink))",
+          purple: "hsl(var(--cyber-purple))",
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -72,10 +76,14 @@ export default {
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-surface': 'var(--gradient-surface)',
+        'gradient-neon': 'var(--gradient-neon)',
+        'gradient-cyber': 'var(--gradient-cyber)',
       },
       boxShadow: {
         'glow': 'var(--shadow-glow)',
+        'neon': 'var(--shadow-neon)',
         'card': 'var(--shadow-card)',
+        'cyber': 'var(--shadow-cyber)',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -121,10 +129,18 @@ export default {
         },
         "glow-pulse": {
           "0%, 100%": {
-            boxShadow: "0 0 20px hsl(var(--primary) / 0.3)"
+            boxShadow: "0 0 30px hsl(320 100% 60% / 0.4)"
           },
           "50%": {
-            boxShadow: "0 0 40px hsl(var(--primary) / 0.6)"
+            boxShadow: "0 0 60px hsl(320 100% 70% / 0.8)"
+          }
+        },
+        "neon-pulse": {
+          "0%, 100%": {
+            textShadow: "0 0 10px hsl(320 100% 70%)"
+          },
+          "50%": {
+            textShadow: "0 0 20px hsl(320 100% 70%), 0 0 30px hsl(290 100% 70%)"
           }
         },
         "progress-fill": {
@@ -138,6 +154,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "neon-pulse": "neon-pulse 1.5s ease-in-out infinite",
         "progress-fill": "progress-fill 1s ease-out forwards",
       },
     },
